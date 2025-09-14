@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>إعدادات - البطاقات</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- <header class="app-header"><h1>إعدادات</h1></header> -->
+  <header class="app-header">
+    <button onclick="history.back()" class="btn small"  style="flex: 10 ;text-align: center">رجوع الى القائمة </button>
+    <h1 style="flex: 10;text-align: center">إعدادات</h1>
+  </header>
+  <main class="container main">
+    <section class="card">
+      <h3>الحساب</h3>
+      <div id="settings-user-info"></div>
+      <div ><h6>لتسجيل مستخدم جديد  إضغط تعديل إلم ينجح إضغط تبديل  وكتب كلمةالمرو  ثم إنشاء مستخدم جديد</h6></div>
+      <!-- <button id="btnEditAccount" class="btn"></button> 
+      <button id="btnAddUser" class="btn"></button>  -->
+    </section>
+
+    <section class="card">
+      <h3>المظهر</h3>
+      <select id="theme-select"><option value="light">فاتح</option><option value="dark">داكن</option></select>
+    </section>
+
+    <section class="card">
+      <h3>الإشعارات</h3>
+      <button id="btnRequestNotification" class="btn">تفعيل / تجربة إشعار</button>
+    </section>
+
+    <section class="card">
+      <h3>تصدير / استيراد</h3>
+      <button id="btnExportAll" class="btn">تصدير كل البطاقات (CSV)</button>
+      <label class="btn ghost">استيراد CSV<input id="fileImport" type="file" accept=".csv" style="display:none"/></label>
+      <div id="export-by-cat"></div>
+    </section>
+
+    <section class="card">
+      <h3>الجوائز</h3>
+      <button id="btnExportClaims" class="btn">تصدير طلبات الجوائز</button>
+      <p>عند الوصول 1000 نقطة يمكنك طلب الجائزة من الواجهة</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
