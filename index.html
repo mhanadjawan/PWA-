@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>البطاقة التعليمية - PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/android-launchericon-192-192.png">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>البطاقة التعليمية</h1>
+    <div class="header-actions">
+      <button id="btnSettings" class="btn">⚙️</button>
+      <button id="btnInstall" class="btn hidden">⬇️ تثبيت</button>
+      <button id="btnLogout" class="btn hidden">تسجيل خروج</button>
+    </div>
+  </header>
+
+  <main id="main" class="main container">
+    <!-- المحتوى يتولى app.js عرضه -->
+  </main>
+
+  <!-- Login / Switch / Create Modal -->
+  <div id="modal-login" class="modal hidden">
+    <div class="modal-content card">
+      <h3 id="modal-login-title">تسجيل الدخول</h3>
+      <div class="grid">
+        <label>اختر حساباً موجوداً</label>
+        <select id="login-user-select"></select>
+        <input id="login-password" type="password" placeholder="كلمة المرور" />
+        <div style="display:flex;gap:8px;justify-content:center">
+          <button id="btnDoLogin" class="btn">دخول</button>
+          <button id="btnOpenCreate" class="btn ghost">حساب جديد</button>
+        </div>
+        <hr/>
+        <h4>أو إنشاء مستخدم جديد</h4>
+        <input id="create-username" placeholder="اسم الحساب (يستخدم لتسجيل الدخول)" />
+        <input id="create-name" placeholder="الاسم الكامل" />
+        <input id="create-age" placeholder="العمر" />
+        <input id="create-grade" placeholder="الصف/المؤهل" />
+        <input id="create-password" type="password" placeholder="كلمة المرور" />
+        <div style="display:flex;gap:8px;justify-content:center">
+          <button id="btnCreateUser" class="btn">إنشاء</button>
+          <button id="btnCloseLogin" class="btn ghost">إغلاق</button>
+        </div>
+        <p class="muted">يمكنك إضافة أكثر من مستخدم؛ كل مستخدم له بطاقاته الخاصة.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile/Edit modal (reuse) -->
+  <div id="modal-profile" class="modal hidden">
+    <div class="modal-content card">
+    <!-- <h3 id="modal-title">تعديل الحساب</h3> -->
+      <div class="grid">
+        <input id="profile-name" placeholder="الاسم الكامل" />
+        <input id="profile-age" placeholder="العمر" />
+        <input id="profile-grade" placeholder="الصف/المؤهل" />
+        <input id="profile-password" type="password" placeholder="تغيير كلمة المرور (اتركه إن لم تُرِد)" />
+        <div style="display:flex;gap:8px;justify-content:center">
+          <button id="btnSaveProfile" class="btn">حفظ</button>
+          <button id="btnCancelProfile" class="btn ghost">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Card Modal -->
+  <div id="modal-addcard" class="modal hidden">
+    <div class="modal-content card">
+      <h3>إضافة بطاقة جديدة</h3>
+      <div class="grid">
+        <input id="card-question" placeholder="السؤال" />
+        <input id="choice-1" placeholder="الإجابة 1 (اختبار)" />
+        <input id="choice-2" placeholder="الإجابة 2" />
+        <input id="choice-3" placeholder="الإجابة 3" />
+        <label>اختر الإجابة الصحيحة</label>
+        <select id="card-correct"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+        <label>التصنيف</label>
+        <select id="card-category"></select>
+        <div style="display:flex;gap:8px;justify-content:center">
+          <button id="btnSaveCard" class="btn">حفظ البطاقة</button>
+          <button id="btnCancelCard" class="btn ghost">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Modal (show question and choices) -->
+  <div id="modal-quiz" class="modal hidden">
+    <div class="modal-content card">
+      <h3 id="quiz-question">السؤال</h3>
+      <div id="quiz-choices" class="grid"></div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+        <button id="btnCloseQuiz" class="btn ghost">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <small> By mohanad bn jawan</small>
+  </footer>
+  
+  <script src="app.js"></script>
+  
+</body>
+</html>
