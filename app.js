@@ -33,7 +33,7 @@ function init(){
 
   window.addEventListener('beforeinstallprompt', (e)=>{ e.preventDefault(); deferredPrompt = e; const el = document.getElementById('btnInstall'); if (el) el.classList.remove('hidden'); });
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.js')
+  navigator.serviceWorker.register('/service-worker.js')
       .then(registration => {
           console.log('Service Worker registered successfully:', registration);
       })
